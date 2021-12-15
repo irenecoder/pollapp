@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pollapp/style.css' %}">
+{% if quiz_list %}
+    <ul>
+        {% for question in quiz_list %}
+        <li><a href="{% url 'pollapp:detail' question.id %}">{{question.quiz_text}}</a></li>
+        {% endfor %}
+    </ul>
+{% else%}
+<p>No polls available</p>
+{% endif %}
